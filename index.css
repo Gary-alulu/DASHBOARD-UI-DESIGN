@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans bg-gray-50 text-gray-900 transition-colors duration-300;
+  }
+
+  .dark body {
+    @apply bg-gray-900 text-gray-100;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+
+  .dark input,
+  .dark select {
+    @apply bg-gray-800 border-gray-700 text-gray-100;
+  }
+
+  .dark button {
+    @apply hover:bg-gray-800;
+  }
+}
+
+@layer components {
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 rounded-lg transition-all duration-300;
+  }
+
+  .dark .sidebar-link {
+    @apply text-gray-400 hover:bg-sidebar-darker hover:shadow-glow-lime;
+  }
+  
+  .sidebar-link.active {
+    @apply bg-lime-active text-white;
+  }
+
+  .dark .sidebar-link.active {
+    @apply bg-lime-active-dark text-white shadow-glow-lime animate-glow-pulse;
+  }
+
+  .course-card {
+    @apply p-4 rounded-2xl shadow-lg hover:scale-105 transition-all duration-300;
+  }
+
+  .dark .course-card {
+    @apply bg-gray-800 shadow-glow-purple hover:shadow-glow-mint;
+  }
+
+  .status-badge {
+    @apply px-2 py-1 rounded-full text-xs font-semibold transition-all duration-300;
+  }
+
+  .dark .status-badge {
+    @apply bg-opacity-80 shadow-glow-blue;
+  }
+
+  .dark .status-badge-success {
+    @apply bg-mint-green-dark text-white shadow-glow-mint;
+  }
+
+  .dark .status-badge-warning {
+    @apply bg-status-orange-dark text-white shadow-glow-orange;
+  }
+
+  .dark .status-badge-info {
+    @apply bg-status-blue-dark text-white shadow-glow-blue;
+  }
+
+  .animate-wave {
+    animation: wave 2.5s infinite;
+    transform-origin: 70% 70%;
+    display: inline-block;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  @keyframes wave {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(14deg) rotateY(0deg); }
+    20% { transform: rotate(-8deg) rotateY(20deg); }
+    30% { transform: rotate(14deg) rotateY(-10deg); }
+    40% { transform: rotate(-4deg) rotateY(10deg); }
+    50% { transform: rotate(10deg) rotateY(0deg); }
+    60% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+  }
+}
